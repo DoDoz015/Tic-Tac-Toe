@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>690</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,21 +30,38 @@ QMainWindow::separator:hover {
    <widget class="QPushButton" name="Exit">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>480</y>
-      <width>83</width>
-      <height>29</height>
+      <x>600</x>
+      <y>370</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: red;
+    border-style: outset;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;
+}
+QPushButton:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}</string>
     </property>
     <property name="text">
      <string>Exit</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>170</y>
+      <x>240</x>
+      <y>130</y>
       <width>208</width>
       <height>121</height>
      </rect>
@@ -76,8 +93,20 @@ QPushButton:pressed {
      <item>
       <widget class="QPushButton" name="SignIn">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(21, 165, 255);
-color: rgb(20, 20, 20);</string>
+        <string notr="true">QPushButton {
+    background-color: red;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+QPushButton:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}</string>
        </property>
        <property name="text">
         <string> Sign In</string>
@@ -92,7 +121,7 @@ color: rgb(20, 20, 20);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>690</width>
      <height>25</height>
     </rect>
    </property>

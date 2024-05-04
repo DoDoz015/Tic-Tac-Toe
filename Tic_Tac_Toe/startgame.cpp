@@ -12,3 +12,12 @@ StartGame::~StartGame()
 {
     delete ui;
 }
+
+void StartGame::on_pushButton_clicked()
+{
+    hide();
+    theGame = new TheGame(this);
+    theGame -> show();
+
+}
+

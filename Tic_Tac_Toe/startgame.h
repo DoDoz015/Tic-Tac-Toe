@@ -1,6 +1,6 @@
 #ifndef STARTGAME_H
 #define STARTGAME_H
-
+#include "thegame.h"
 #include <QDialog>
 
 namespace Ui {
@@ -15,8 +15,16 @@ public:
     explicit StartGame(QWidget *parent = nullptr);
     ~StartGame();
 
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::StartGame *ui;
+    TheGame * theGame;
+
+
 };
+
 
 #endif // STARTGAME_H

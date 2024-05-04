@@ -32,7 +32,7 @@ void MainWindow::on_Login_clicked()
     }
 
     QSqlQuery query;
-    query.prepare("SELECT * FROM User WHERE username = :username AND password_hash = :password");
+    query.prepare("SELECT * FROM Player WHERE username = :username AND password = :password");
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
@@ -70,7 +70,7 @@ void MainWindow::on_Save_clicked()
     }
 
     QSqlQuery checkQuery;
-    checkQuery.prepare("SELECT * FROM User WHERE username = :username");
+    checkQuery.prepare("SELECT * FROM Player WHERE username = :username");
     checkQuery.bindValue(":username", username);
 
     if (!checkQuery.exec()) {
@@ -85,9 +85,9 @@ void MainWindow::on_Save_clicked()
     }
 
     QSqlQuery insertQuery;
-    insertQuery.prepare("INSERT INTO User (username, password_hash, created_at) VALUES (:username, :password_hash, :created_at)");
+    insertQuery.prepare("INSERT INTO Player (username, password, created_at) VALUES (:username, :password, :created_at)");
     insertQuery.bindValue(":username", username);
-    insertQuery.bindValue(":password_hash", password);
+    insertQuery.bindValue(":password", password);
     insertQuery.bindValue(":created_at", currentTime);
 
     if (!insertQuery.exec()) {

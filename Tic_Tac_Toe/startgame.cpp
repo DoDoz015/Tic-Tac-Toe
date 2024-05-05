@@ -2,11 +2,8 @@
 #include "ui_startgame.h"
 #include "mainwindow.h"
 
-StartGame::StartGame(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::StartGame)
+StartGame::StartGame(QWidget *parent) : QDialog(parent), ui(new Ui::StartGame)
 {
-
     ui->setupUi(this);
 }
 
@@ -17,14 +14,8 @@ StartGame::~StartGame()
 
 void StartGame::on_oneVSone_clicked()
 {
-
-
-
-        hide();
-        MainWindow *mainWindow = new MainWindow();
-        mainWindow -> show();
-
-
-
+    // Start a new one-on-one game
+    hide();
+    MainWindow *mainWindow = new MainWindow();
+    mainWindow->show();
 }
-

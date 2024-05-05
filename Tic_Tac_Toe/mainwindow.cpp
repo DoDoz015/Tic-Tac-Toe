@@ -23,6 +23,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Login_clicked()
 {
+    static bool firstTime = true;
+   //StartGame:: extern bool First_time;
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
@@ -44,9 +46,19 @@ void MainWindow::on_Login_clicked()
     if (query.next()) {
         qDebug() << "Login successful!";
         QMessageBox::information(this, "Login Success", "Logged in successfully.");
+
+        if (firstTime){
         hide();
         startGame = new StartGame(this);
         startGame -> show();
+        firstTime = false;            }
+        else {
+            hide();
+            theGame = new TheGame(this);
+            theGame -> show();
+            firstTime = true;
+        }
+
 
 
         // Perform actions after successful login, such as opening a new window or updating UI

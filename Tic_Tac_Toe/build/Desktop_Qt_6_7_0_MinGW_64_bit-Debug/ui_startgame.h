@@ -22,9 +22,9 @@ class Ui_StartGame
 {
 public:
     QPushButton *pushButton_3;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
+    QPushButton *oneVSone;
     QPushButton *pushButton_2;
 
     void setupUi(QDialog *StartGame)
@@ -35,18 +35,18 @@ public:
         pushButton_3 = new QPushButton(StartGame);
         pushButton_3->setObjectName("pushButton_3");
         pushButton_3->setGeometry(QRect(400, 330, 93, 29));
-        widget = new QWidget(StartGame);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(340, 150, 221, 81));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(StartGame);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(340, 150, 221, 81));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName("pushButton");
+        oneVSone = new QPushButton(layoutWidget);
+        oneVSone->setObjectName("oneVSone");
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(oneVSone);
 
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout->addWidget(pushButton_2);
@@ -62,7 +62,7 @@ public:
     {
         StartGame->setWindowTitle(QCoreApplication::translate("StartGame", "Dialog", nullptr));
         pushButton_3->setText(QCoreApplication::translate("StartGame", "Exit", nullptr));
-        pushButton->setText(QCoreApplication::translate("StartGame", "1vs1", nullptr));
+        oneVSone->setText(QCoreApplication::translate("StartGame", "1vs1", nullptr));
         pushButton_2->setText(QCoreApplication::translate("StartGame", "1vsAI", nullptr));
     } // retranslateUi
 

@@ -3,6 +3,8 @@
 #include "thegame.h"
 #include <QDialog>
 
+
+
 namespace Ui {
 class StartGame;
 }
@@ -17,11 +19,15 @@ public:
 
 
 private slots:
-    void on_pushButton_clicked();
+    void on_oneVSone_clicked();
+
 
 private:
     Ui::StartGame *ui;
     TheGame * theGame;
+
+
+
 
 
 };

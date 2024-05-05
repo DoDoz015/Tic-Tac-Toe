@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "startgame.h"
+#include "thegame.h"
 
 #include <QMainWindow>
 #include <QtSql>
@@ -23,18 +24,19 @@ public:
     ~MainWindow();
 
 private slots:
-<<<<<<< HEAD
-    void on_pushButton_clicked();
-=======
+
+   // void on_pushButton_clicked();
+
     void on_Login_clicked();
 
     void on_Save_clicked();
->>>>>>> c6671ae2d93e8535cd7fa95ce1696fe8c5e6b038
+
 
 private:
     Ui::MainWindow *ui;
     QSqlDatabase MyDB;
     StartGame * startGame;
+    TheGame * theGame;
 
 };
 #endif // MAINWINDOW_H

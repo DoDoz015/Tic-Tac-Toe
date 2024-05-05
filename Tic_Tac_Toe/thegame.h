@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <QGuiApplication>
 #include <QScreen>
+
 namespace Ui {
 class TheGame;
 }
@@ -24,10 +25,18 @@ private slots:
     void on_pushButton_clicked();
      void checkForWin();
 
-private:
+    void on_Reset_clicked();
+
+     void on_New_Game_clicked();
+
+
+
+
+ private:
     QPushButton *grid[3][3];
     Ui::TheGame *ui;
     QString currentPlayer;
+    bool End_Game;
 
     void switchPlayer();
 

@@ -2,6 +2,8 @@
 #include "ui_thegame.h"
 #include <QMessageBox>
 #include <QDebug>
+#include "mainwindow.h"
+
 using namespace std;
 
 
@@ -12,6 +14,7 @@ TheGame::TheGame(QWidget *parent) :
  currentPlayer("X")
 {
     ui->setupUi(this);
+    End_Game = true;
 
 
     // Connect the clicked signal of all buttons to the same slot
@@ -24,6 +27,7 @@ TheGame::TheGame(QWidget *parent) :
     connect(ui->pushButton_7, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_8, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_9, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
+    connect(ui->Reset, &QPushButton::clicked, this, &TheGame::on_Reset_clicked);
 
     grid[0][0] = ui->pushButton;
     grid[0][1] = ui->pushButton_2;
@@ -45,6 +49,7 @@ TheGame::~TheGame()
 void TheGame::on_pushButton_clicked()
 {
     // Get the sender button
+    if(End_Game){
     QPushButton *button = qobject_cast<QPushButton*>(sender());
 
     if (button->text().isEmpty()) {
@@ -53,10 +58,10 @@ void TheGame::on_pushButton_clicked()
     }
     checkForWin();
 
-
-
-
+    }
 }
+
+
 void TheGame::checkForWin()
 {
     QString winner;
@@ -94,7 +99,33 @@ void TheGame::checkForWin()
 
     // If a winner is found, display a message
     if (!winner.isEmpty()) {
+        End_Game = false;
         QMessageBox::information(this, "Winner!", winner + " wins!");
+    }
+    // Check For Draaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaw!
+    else{
+        bool isFull = true;
+
+        // Check if any button in the grid is empty
+        for (int row = 0; row < 3; ++row) {
+            for (int col = 0; col < 3; ++col) {
+                QPushButton *button = grid[row][col];
+                if (button->text().isEmpty()) {
+                    isFull = false;
+                    break;  // No need to continue checking if one button is empty
+                }
+            }
+            if (!isFull) {
+                break;  // No need to continue checking if one button is empty
+            }
+        }
+
+        // Show message if the board is full (draw)
+        if (isFull) {
+            QMessageBox::information(this, "Draw", "It's a draw! The game is over.");
+            // You can perform any additional actions here, such as resetting the board or ending the game
+        }
+
     }
 
 }
@@ -105,3 +136,26 @@ void TheGame::switchPlayer()
 }
 
 // function to return the user wants X or O
+
+void TheGame::on_Reset_clicked()
+{
+    for (int row = 0; row < 3; ++row) {
+        for (int col = 0; col < 3; ++col) {
+            grid[row][col]->setText("");
+}
+
+}
+        currentPlayer = "X";
+        End_Game = true;
+
+}
+
+void TheGame::on_New_Game_clicked()
+{
+    hide();
+  MainWindow *mainWindow = new MainWindow();
+    mainWindow -> show();
+
+}
+
+

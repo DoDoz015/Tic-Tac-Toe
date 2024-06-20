@@ -6,6 +6,7 @@
 #include <QGuiApplication>
 #include <QScreen>
 
+
 namespace Ui {
 class TheGame;
 }
@@ -17,6 +18,7 @@ class TheGame : public QDialog
 public:
     explicit TheGame(QWidget *parent = nullptr);
     ~TheGame();
+
 
 
 private slots:

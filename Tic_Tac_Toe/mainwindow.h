@@ -3,7 +3,7 @@
 
 #include "startgame.h"
 #include "thegame.h"
-
+#include "gameai.h"
 #include <QMainWindow>
 #include <QtSql>
 #include <QDebug>

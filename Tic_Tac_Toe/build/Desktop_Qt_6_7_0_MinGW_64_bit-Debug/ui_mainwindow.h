@@ -38,7 +38,6 @@ public:
     QLineEdit *lineEdit_username_2;
     QLineEdit *lineEdit_password_2;
     QPushButton *Save;
-    QLabel *label;
     QPushButton *pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -86,9 +85,6 @@ public:
         Save = new QPushButton(groupBox_2);
         Save->setObjectName("Save");
         Save->setGeometry(QRect(60, 130, 93, 29));
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(190, 30, 63, 20));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(350, 410, 93, 29));
@@ -118,7 +114,6 @@ public:
         label_4->setText(QCoreApplication::translate("MainWindow", "username", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "password", nullptr));
         Save->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
     } // retranslateUi
 

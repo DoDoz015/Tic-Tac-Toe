@@ -1,7 +1,9 @@
 #ifndef STARTGAME_H
 #define STARTGAME_H
+#pragma once
 #include "thegame.h"
 #include <QDialog>
+#include "gameai.h"
 
 
 
@@ -18,14 +20,17 @@ public:
     ~StartGame();
 
 
+
 private slots:
     void on_oneVSone_clicked();
 
 
+    void on_oneVSai_clicked();
+
 private:
     Ui::StartGame *ui;
     TheGame * theGame;
-
+    GameAi * Gameai;
 
 
 

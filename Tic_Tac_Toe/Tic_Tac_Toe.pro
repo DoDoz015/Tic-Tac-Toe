@@ -9,17 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gameai.cpp \
     main.cpp \
     mainwindow.cpp \
     startgame.cpp \
     thegame.cpp
 
 HEADERS += \
+    gameai.h \
     mainwindow.h \
     startgame.h \
     thegame.h
 
 FORMS += \
+    gameai.ui \
     mainwindow.ui \
     startgame.ui \
     thegame.ui

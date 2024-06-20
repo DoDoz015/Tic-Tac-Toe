@@ -25,7 +25,7 @@ public:
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *oneVSone;
-    QPushButton *pushButton_2;
+    QPushButton *oneVSai;
 
     void setupUi(QDialog *StartGame)
     {
@@ -46,10 +46,10 @@ public:
 
         horizontalLayout->addWidget(oneVSone);
 
-        pushButton_2 = new QPushButton(layoutWidget);
-        pushButton_2->setObjectName("pushButton_2");
+        oneVSai = new QPushButton(layoutWidget);
+        oneVSai->setObjectName("oneVSai");
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(oneVSai);
 
 
         retranslateUi(StartGame);
@@ -63,7 +63,7 @@ public:
         StartGame->setWindowTitle(QCoreApplication::translate("StartGame", "Dialog", nullptr));
         pushButton_3->setText(QCoreApplication::translate("StartGame", "Exit", nullptr));
         oneVSone->setText(QCoreApplication::translate("StartGame", "1vs1", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("StartGame", "1vsAI", nullptr));
+        oneVSai->setText(QCoreApplication::translate("StartGame", "1vsAI", nullptr));
     } // retranslateUi
 
 };

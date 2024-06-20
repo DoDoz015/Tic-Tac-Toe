@@ -27,7 +27,7 @@
      <number>1</number>
     </property>
     <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_1">
       <property name="minimumSize">
        <size>
         <width>100</width>
@@ -228,7 +228,7 @@
     <string>New Game</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_12">
+  <widget class="QPushButton" name="Undo">
    <property name="geometry">
     <rect>
      <x>700</x>

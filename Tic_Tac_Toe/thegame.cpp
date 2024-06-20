@@ -3,7 +3,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "mainwindow.h"
-
+QStack<Move> moveStack;
 using namespace std;
 
 
@@ -18,7 +18,7 @@ TheGame::TheGame(QWidget *parent) :
 
 
     // Connect the clicked signal of all buttons to the same slot
-    connect(ui->pushButton,   &QPushButton::clicked, this,   &TheGame::on_pushButton_clicked);
+    connect(ui->pushButton_1,   &QPushButton::clicked, this,   &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_4, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
@@ -27,9 +27,10 @@ TheGame::TheGame(QWidget *parent) :
     connect(ui->pushButton_7, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_8, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_9, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
-    connect(ui->Reset, &QPushButton::clicked, this, &TheGame::on_Reset_clicked);
+    //connect(ui->Reset, &QPushButton::clicked, this, &TheGame::on_Reset_clicked);
+    //connect(ui->Undo, &QPushButton::clicked, this, &TheGame::on_Undo_clicked);
 
-    grid[0][0] = ui->pushButton;
+    grid[0][0] = ui->pushButton_1;
     grid[0][1] = ui->pushButton_2;
     grid[0][2] = ui->pushButton_3;
     grid[1][0] = ui->pushButton_4;
@@ -48,17 +49,37 @@ TheGame::~TheGame()
 
 void TheGame::on_pushButton_clicked()
 {
+    if (End_Game) {
+        QPushButton *button = qobject_cast<QPushButton*>(sender());
 
-    // Get the sender button
-    if(End_Game){
-    QPushButton *button = qobject_cast<QPushButton*>(sender());
+        if (button->text().isEmpty()) {
+            button->setText(currentPlayer);
 
-    if (button->text().isEmpty()) {
-        button->setText(currentPlayer);
-         switchPlayer();
-    }
-    checkForWin();
+            // Determine the row and column of the move
+            int row = -1, col = -1;
+            for (int i = 0; i < 3; ++i) {
+                for (int j = 0; j < 3; ++j) {
+                    if (grid[i][j] == button) {
+                        row = i;
+                        col = j;
+                        break;
+                    }
+                }
+                if (row != -1) break;
+            }
 
+            if (row != -1 && col != -1) {
+                // Push the move into the stack
+                Move move;
+                move.row = row;
+                move.col = col;
+                move.player = currentPlayer;
+                moveStack.push(move);
+            }
+
+            switchPlayer();
+            checkForWin();
+        }
     }
 }
 
@@ -143,20 +164,41 @@ void TheGame::on_Reset_clicked()
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
             grid[row][col]->setText("");
-}
+        }
 
-}
-        currentPlayer = "X";
-        End_Game = true;
+    }
+    currentPlayer = "X";
+    End_Game = true;
 
 }
 
 void TheGame::on_New_Game_clicked()
 {
     hide();
-  MainWindow *mainWindow = new MainWindow();
+    MainWindow *mainWindow = new MainWindow();
     mainWindow -> show();
 
 }
 
 
+
+
+void TheGame::on_Undo_clicked()
+{
+    if (moveStack.isEmpty()) {
+        QMessageBox::information(this, "Undo", "No moves to undo!");
+        return;
+    }
+
+    // Pop the last move
+    Move lastMove = moveStack.pop();
+
+    // Update the game board
+    grid[lastMove.row][lastMove.col]->setText("");
+
+    // Switch back to the player who made the undone move
+    switchPlayer();
+    if(End_Game == false){
+        End_Game = true;
+    }
+}

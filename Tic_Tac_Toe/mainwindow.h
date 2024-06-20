@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -8,6 +9,9 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
+
+
+extern bool firsttimeai;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -37,6 +41,9 @@ private:
     QSqlDatabase MyDB;
     StartGame * startGame;
     TheGame * theGame;
+    GameAi * gameai;
+    QString hashPassword(const QString &password);
+    bool checkPassword(const QString &inputPassword, const QString &hashedPassword);
 
 };
 #endif // MAINWINDOW_H

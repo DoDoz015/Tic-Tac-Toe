@@ -1,9 +1,11 @@
+#pragma once
 #ifndef STARTGAME_H
 #define STARTGAME_H
-#pragma once
 #include "thegame.h"
 #include <QDialog>
 #include "gameai.h"
+extern bool manage;
+
 
 
 

@@ -23,7 +23,7 @@ class Ui_TheGame
 public:
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
+    QPushButton *pushButton_1;
     QPushButton *pushButton_3;
     QPushButton *pushButton_5;
     QPushButton *pushButton_2;
@@ -34,7 +34,7 @@ public:
     QPushButton *pushButton_7;
     QPushButton *Reset;
     QPushButton *New_Game;
-    QPushButton *pushButton_12;
+    QPushButton *Undo;
     QPushButton *pushButton_10;
 
     void setupUi(QDialog *TheGame)
@@ -49,15 +49,15 @@ public:
         gridLayout->setSpacing(1);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(100, 100));
+        pushButton_1 = new QPushButton(layoutWidget);
+        pushButton_1->setObjectName("pushButton_1");
+        pushButton_1->setMinimumSize(QSize(100, 100));
         QFont font;
         font.setPointSize(36);
         font.setBold(true);
-        pushButton->setFont(font);
+        pushButton_1->setFont(font);
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(pushButton_1, 0, 0, 1, 1);
 
         pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName("pushButton_3");
@@ -122,9 +122,9 @@ public:
         New_Game = new QPushButton(TheGame);
         New_Game->setObjectName("New_Game");
         New_Game->setGeometry(QRect(400, 520, 93, 29));
-        pushButton_12 = new QPushButton(TheGame);
-        pushButton_12->setObjectName("pushButton_12");
-        pushButton_12->setGeometry(QRect(700, 520, 93, 29));
+        Undo = new QPushButton(TheGame);
+        Undo->setObjectName("Undo");
+        Undo->setGeometry(QRect(700, 520, 93, 29));
         pushButton_10 = new QPushButton(TheGame);
         pushButton_10->setObjectName("pushButton_10");
         pushButton_10->setGeometry(QRect(540, 610, 91, 61));
@@ -138,7 +138,7 @@ public:
     void retranslateUi(QDialog *TheGame)
     {
         TheGame->setWindowTitle(QCoreApplication::translate("TheGame", "Dialog", nullptr));
-        pushButton->setText(QString());
+        pushButton_1->setText(QString());
         pushButton_3->setText(QString());
         pushButton_5->setText(QString());
         pushButton_2->setText(QString());
@@ -149,7 +149,7 @@ public:
         pushButton_7->setText(QString());
         Reset->setText(QCoreApplication::translate("TheGame", "Reset", nullptr));
         New_Game->setText(QCoreApplication::translate("TheGame", "New Game", nullptr));
-        pushButton_12->setText(QCoreApplication::translate("TheGame", "Undo", nullptr));
+        Undo->setText(QCoreApplication::translate("TheGame", "Undo", nullptr));
         pushButton_10->setText(QCoreApplication::translate("TheGame", "Exit", nullptr));
     } // retranslateUi
 

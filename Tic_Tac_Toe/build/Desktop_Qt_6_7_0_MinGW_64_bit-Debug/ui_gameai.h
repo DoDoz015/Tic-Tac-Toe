@@ -23,7 +23,7 @@ class Ui_GameAi
 public:
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
+    QPushButton *pushButton_1;
     QPushButton *pushButton_3;
     QPushButton *pushButton_5;
     QPushButton *pushButton_4;
@@ -32,7 +32,7 @@ public:
     QPushButton *pushButton_9;
     QPushButton *pushButton_7;
     QPushButton *pushButton_2;
-    QPushButton *pushButton_12;
+    QPushButton *Undo;
     QPushButton *Reset;
     QPushButton *New_Game;
     QPushButton *pushButton_10;
@@ -49,15 +49,15 @@ public:
         gridLayout->setSpacing(1);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(100, 100));
+        pushButton_1 = new QPushButton(layoutWidget);
+        pushButton_1->setObjectName("pushButton_1");
+        pushButton_1->setMinimumSize(QSize(100, 100));
         QFont font;
         font.setPointSize(36);
         font.setBold(true);
-        pushButton->setFont(font);
+        pushButton_1->setFont(font);
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(pushButton_1, 0, 0, 1, 1);
 
         pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName("pushButton_3");
@@ -116,9 +116,9 @@ public:
 
         gridLayout->addWidget(pushButton_2, 0, 1, 1, 1);
 
-        pushButton_12 = new QPushButton(GameAi);
-        pushButton_12->setObjectName("pushButton_12");
-        pushButton_12->setGeometry(QRect(720, 490, 93, 29));
+        Undo = new QPushButton(GameAi);
+        Undo->setObjectName("Undo");
+        Undo->setGeometry(QRect(720, 490, 93, 29));
         Reset = new QPushButton(GameAi);
         Reset->setObjectName("Reset");
         Reset->setGeometry(QRect(570, 490, 93, 29));
@@ -138,7 +138,7 @@ public:
     void retranslateUi(QDialog *GameAi)
     {
         GameAi->setWindowTitle(QCoreApplication::translate("GameAi", "Dialog", nullptr));
-        pushButton->setText(QString());
+        pushButton_1->setText(QString());
         pushButton_3->setText(QString());
         pushButton_5->setText(QString());
         pushButton_4->setText(QString());
@@ -147,7 +147,7 @@ public:
         pushButton_9->setText(QString());
         pushButton_7->setText(QString());
         pushButton_2->setText(QString());
-        pushButton_12->setText(QCoreApplication::translate("GameAi", "Undo", nullptr));
+        Undo->setText(QCoreApplication::translate("GameAi", "Undo", nullptr));
         Reset->setText(QCoreApplication::translate("GameAi", "Reset", nullptr));
         New_Game->setText(QCoreApplication::translate("GameAi", "New Game", nullptr));
         pushButton_10->setText(QCoreApplication::translate("GameAi", "Exit", nullptr));

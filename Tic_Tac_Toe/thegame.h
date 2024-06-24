@@ -56,9 +56,12 @@ private:
     Ui::TheGame *ui;
     QString currentPlayer;
     bool End_Game;
+    int stepNumber;  // Add this line to track the step number
+    void startNewGame() ;
+
 
     void switchPlayer();
-
+    int lastInsertedGameID;
 
 
 };

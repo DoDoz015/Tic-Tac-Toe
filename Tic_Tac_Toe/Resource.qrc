@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>C:/Users/user/Downloads/next icon.png</file>
+        <file>C:/Users/user/Downloads/Back icon.png</file>
+    </qresource>
+</RCC>

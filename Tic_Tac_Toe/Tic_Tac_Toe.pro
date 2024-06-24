@@ -10,20 +10,29 @@ CONFIG += c++17
 
 SOURCES += \
     gameai.cpp \
+    gamehistory.cpp \
+    gamehistorylogin.cpp \
     main.cpp \
     mainwindow.cpp \
+    replaygamewindow.cpp \
     startgame.cpp \
     thegame.cpp
 
 HEADERS += \
     gameai.h \
+    gamehistory.h \
+    gamehistorylogin.h \
     mainwindow.h \
+    replaygamewindow.h \
     startgame.h \
     thegame.h
 
 FORMS += \
     gameai.ui \
+    gamehistory.ui \
+    gamehistorylogin.ui \
     mainwindow.ui \
+    replaygamewindow.ui \
     startgame.ui \
     thegame.ui
 
@@ -31,3 +40,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resource.qrc

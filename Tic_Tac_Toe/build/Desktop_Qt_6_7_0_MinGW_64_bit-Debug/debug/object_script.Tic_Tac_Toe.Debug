@@ -1,0 +1,16 @@
+debug/gameai.o
+debug/gamehistory.o
+debug/gamehistorylogin.o
+debug/main.o
+debug/mainwindow.o
+debug/replaygamewindow.o
+debug/startgame.o
+debug/thegame.o
+debug/qrc_Resource.o
+debug/moc_gameai.o
+debug/moc_gamehistory.o
+debug/moc_gamehistorylogin.o
+debug/moc_mainwindow.o
+debug/moc_replaygamewindow.o
+debug/moc_startgame.o
+debug/moc_thegame.o

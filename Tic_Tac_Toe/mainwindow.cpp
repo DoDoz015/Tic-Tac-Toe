@@ -3,10 +3,15 @@
 #include <QMessageBox>
 #include <QCryptographicHash>
 
+using namespace std;
 bool firsttimeai = true;
 bool firsttime = true;
+int loggedInUser1ID = 0;
+int loggedInUser2ID = 0;
+QString loggedInUser1 ;
+QString loggedInUser2 ;
 QString loggedInUser;  // Username of the logged-in user
-
+int userId;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -48,10 +53,12 @@ void MainWindow::on_Login_clicked()
     }
 
     // Check if a user is already logged in
+    if(manage){
     if (username==loggedInUser) {
         QMessageBox::warning(this, "Login Error", "This user is already logged in");
         return;
-    }
+    }}
+
 
     QSqlQuery query;
     query.prepare("SELECT * FROM Player WHERE username = :username");
@@ -66,6 +73,20 @@ void MainWindow::on_Login_clicked()
     if (query.next()) {
         QString storedPasswordHash = query.value("password").toString();
         if (checkPassword(password, storedPasswordHash)){
+            if (firsttime){
+
+            loggedInUser1ID = query.value(0).toInt();
+                loggedInUser1 = username;
+            qDebug() << loggedInUser1ID ;
+            } else{
+
+                loggedInUser2ID = query.value(0).toInt();
+                loggedInUser2 = username;
+                qDebug() << loggedInUser2ID ;
+
+            }
+
+
         qDebug() << "Login successful!";
         QMessageBox::information(this, "Login Success", "Logged in successfully.");
 
@@ -73,7 +94,7 @@ void MainWindow::on_Login_clicked()
         loggedInUser = username;
 
         // Check if a user is already logged in
-        if(!loggedInUser.isEmpty()) {
+        if(!loggedInUser.isEmpty()){
             if (manage) {
                 if (firsttime) {
                     hide();
@@ -164,5 +185,17 @@ void MainWindow::on_Save_clicked()
     ui->lineEdit_password_2->clear();
 
 
+}
+
+
+void MainWindow::on_Game_History_clicked()
+{
+    // create class urgamedetails
+    // it will be in every class and contains login
+    // it shows all the games and if any game pressed show details
+    //search with chat what to use instead of push buttons do the above one
+    hide();
+    gamehistorylogin = new GameHistoryLogin(this);
+    gamehistorylogin->show();
 }
 

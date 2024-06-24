@@ -2,6 +2,7 @@
 #ifndef GAMEAI_H
 #define GAMEAI_H
 
+
 #include <QWidget>
 #include <QPushButton>
 #include <QDialog>
@@ -15,6 +16,7 @@ struct MoveAI {
     int row;
     int col;
     QString player;  // 'X' or 'O'
+
 };
 
 extern QStack<MoveAI> moveStackAI;
@@ -57,11 +59,20 @@ private:
 
     void checkForWin();
 
+    MoveAI move;
+
     void AIMove();
 
     int minimax(bool isMaximizing, int alpha, int beta);
 
     QString checkWinner();
+    int lastInsertedGameID;
+    void deleteMoveFromDatabase();
+    void startNewGame() ;
+    int stepNumber;
+
+
+
 
 };
 

@@ -1,0 +1,16 @@
+release/gameai.o
+release/gamehistory.o
+release/gamehistorylogin.o
+release/main.o
+release/mainwindow.o
+release/replaygamewindow.o
+release/startgame.o
+release/thegame.o
+release/qrc_Resource.o
+release/moc_gameai.o
+release/moc_gamehistory.o
+release/moc_gamehistorylogin.o
+release/moc_mainwindow.o
+release/moc_replaygamewindow.o
+release/moc_startgame.o
+release/moc_thegame.o

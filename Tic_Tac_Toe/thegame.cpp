@@ -3,22 +3,24 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "mainwindow.h"
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QMetaType>
+
 QStack<Move> moveStack;
-using namespace std;
-
-
 
 TheGame::TheGame(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TheGame),
-    currentPlayer("X")
+    currentPlayer("X"),
+    stepNumber(0)  // Initialize step number
 {
     ui->setupUi(this);
     End_Game = true;
-
+    startNewGame();
 
     // Connect the clicked signal of all buttons to the same slot
-    connect(ui->pushButton_1,   &QPushButton::clicked, this,   &TheGame::on_pushButton_clicked);
+    connect(ui->pushButton_1, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     connect(ui->pushButton_4, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
@@ -29,6 +31,7 @@ TheGame::TheGame(QWidget *parent) :
     connect(ui->pushButton_9, &QPushButton::clicked, this, &TheGame::on_pushButton_clicked);
     //connect(ui->Reset, &QPushButton::clicked, this, &TheGame::on_Reset_clicked);
     //connect(ui->Undo, &QPushButton::clicked, this, &TheGame::on_Undo_clicked);
+    //connect(ui->New_Game, &QPushButton::clicked, this, &TheGame::on_New_Game_clicked);
 
     grid[0][0] = ui->pushButton_1;
     grid[0][1] = ui->pushButton_2;
@@ -41,14 +44,27 @@ TheGame::TheGame(QWidget *parent) :
     grid[2][2] = ui->pushButton_9;
 }
 
-TheGame::~TheGame()
-{
+TheGame::~TheGame() {
     delete ui;
 }
 
+void TheGame::startNewGame() {
+    // Insert a new game entry with Player1_ID and Player2_ID
+    QSqlQuery query;
+    query.prepare("INSERT INTO Game (Player1_ID, Player2_ID, Winner_ID) VALUES (:Player1_ID, :Player2_ID, :Winner_ID)");
+    query.bindValue(":Player1_ID", loggedInUser1ID);
+    query.bindValue(":Player2_ID", loggedInUser2ID);
+    query.bindValue(":Winner_ID", QVariant(QMetaType(QMetaType::Int)));  // Placeholder for Winner_ID
 
-void TheGame::on_pushButton_clicked()
-{
+    if (!query.exec()) {
+        qDebug() << "Failed to insert new game:" << query.lastError();
+    } else {
+        lastInsertedGameID = query.lastInsertId().toInt();  // Save the last inserted game ID
+        qDebug() << "Started new game with Game_ID:" << lastInsertedGameID;
+    }
+}
+
+void TheGame::on_pushButton_clicked() {
     if (End_Game) {
         QPushButton *button = qobject_cast<QPushButton*>(sender());
 
@@ -75,6 +91,21 @@ void TheGame::on_pushButton_clicked()
                 move.col = col;
                 move.player = currentPlayer;
                 moveStack.push(move);
+
+                // Insert the move into the GameSteps table
+                QSqlQuery query;
+                query.prepare("INSERT INTO GameSteps (Game_ID, Step_Number, Row, Col, Player_ID) VALUES (:Game_ID, :Step_Number, :Row, :Col, :Player_ID)");
+                query.bindValue(":Game_ID", lastInsertedGameID);
+                query.bindValue(":Step_Number", ++stepNumber);  // Increment and bind step number
+                query.bindValue(":Row", row);
+                query.bindValue(":Col", col);
+                query.bindValue(":Player_ID", (currentPlayer == "X") ? loggedInUser1ID : loggedInUser2ID);
+
+                if (!query.exec()) {
+                    qDebug() << "Failed to insert game step:" << query.lastError();
+                } else {
+                    qDebug() << "Inserted game step with Step_Number:" << stepNumber;
+                }
             }
 
             switchPlayer();
@@ -83,10 +114,10 @@ void TheGame::on_pushButton_clicked()
     }
 }
 
-
-void TheGame::checkForWin()
-{
+void TheGame::checkForWin() {
     QString winner;
+    int winnerID = 0;
+    QString winnerUser;
 
     // Check rows
     for (int row = 0; row < 3; ++row) {
@@ -122,10 +153,23 @@ void TheGame::checkForWin()
     // If a winner is found, display a message
     if (!winner.isEmpty()) {
         End_Game = false;
-        QMessageBox::information(this, "Winner!", winner + " wins!");
+        winnerUser = (winner == "X") ? loggedInUser1 : loggedInUser2;
+        QMessageBox::information(this, "Winner!", winnerUser + " wins!");
+        winnerID = (winner == "X") ? loggedInUser1ID : loggedInUser2ID;
+
+        // Update the Winner_ID in the Game table
+        QSqlQuery query;
+        query.prepare("UPDATE Game SET Winner_ID = :Winner_ID WHERE Game_ID = :Game_ID");
+        query.bindValue(":Winner_ID", winnerID);
+        query.bindValue(":Game_ID", lastInsertedGameID);
+        if (!query.exec()) {
+            qDebug() << "Failed to update game result:" << query.lastError();
+        } else {
+            qDebug() << "Updated game result with Winner_ID:" << winnerID;
+        }
     }
-    // Check For Draaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaw!
-    else{
+    // Check for draw
+    else {
         bool isFull = true;
 
         // Check if any button in the grid is empty
@@ -144,47 +188,48 @@ void TheGame::checkForWin()
 
         // Show message if the board is full (draw)
         if (isFull) {
-            QMessageBox::information(this, "Draw", "It's a draw! The game is over.");
+            End_Game = false;
+            QMessageBox::information(this, "Game Over", "It's a draw!");
             // You can perform any additional actions here, such as resetting the board or ending the game
+            winnerID = 0;
+
+            // Update the Winner_ID in the Game table to indicate a draw
+            QSqlQuery query;
+            query.prepare("UPDATE Game SET Winner_ID = :Winner_ID WHERE Game_ID = :Game_ID");
+            query.bindValue(":Winner_ID", winnerID);
+            query.bindValue(":Game_ID", lastInsertedGameID);
+            if (!query.exec()) {
+                qDebug() << "Failed to update game result:" << query.lastError();
+            } else {
+                qDebug() << "Updated game result to indicate draw with Game_ID:" << lastInsertedGameID;
+            }
         }
-
     }
-
 }
 
-void TheGame::switchPlayer()
-{
+void TheGame::switchPlayer() {
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
 }
 
-// function to return the user wants X or O
-
-void TheGame::on_Reset_clicked()
-{
+void TheGame::on_Reset_clicked() {
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
             grid[row][col]->setText("");
         }
-
     }
     currentPlayer = "X";
     End_Game = true;
-
+    stepNumber = 0;  // Reset step number
 }
 
-void TheGame::on_New_Game_clicked()
-{
+void TheGame::on_New_Game_clicked() {
+    loggedInUser = NULL;
     hide();
     MainWindow *mainWindow = new MainWindow();
-    mainWindow -> show();
-
+    mainWindow->show();
 }
 
-
-
-
-void TheGame::on_Undo_clicked()
-{
+void TheGame::on_Undo_clicked() {
     if (moveStack.isEmpty()) {
         QMessageBox::information(this, "Undo", "No moves to undo!");
         return;
@@ -198,7 +243,24 @@ void TheGame::on_Undo_clicked()
 
     // Switch back to the player who made the undone move
     switchPlayer();
-    if(End_Game == false){
+
+    // If the game was previously ended, allow it to continue
+    if (!End_Game) {
         End_Game = true;
+    }
+
+    // Debug statement to check lastInsertedGameID
+    qDebug() << "Attempting to delete game step with Game_ID:" << lastInsertedGameID << " and Step_Number:" << stepNumber;
+
+    // Delete the last inserted game step from the database
+    QSqlQuery query;
+    query.prepare("DELETE FROM GameSteps WHERE Game_ID = :Game_ID AND Step_Number = :Step_Number");
+    query.bindValue(":Game_ID", lastInsertedGameID);
+    query.bindValue(":Step_Number", stepNumber--);  // Decrement step number after binding
+
+    if (!query.exec()) {
+        qDebug() << "Failed to delete game step:" << query.lastError();
+    } else {
+        qDebug() << "Successfully deleted game step with Step_Number:" << stepNumber + 1;
     }
 }

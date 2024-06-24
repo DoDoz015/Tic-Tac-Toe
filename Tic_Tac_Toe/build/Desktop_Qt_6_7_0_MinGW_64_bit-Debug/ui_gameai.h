@@ -41,10 +41,10 @@ public:
     {
         if (GameAi->objectName().isEmpty())
             GameAi->setObjectName("GameAi");
-        GameAi->resize(1342, 783);
+        GameAi->resize(1035, 638);
         layoutWidget = new QWidget(GameAi);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(460, 110, 316, 316));
+        layoutWidget->setGeometry(QRect(310, 40, 316, 316));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(1);
         gridLayout->setObjectName("gridLayout");
@@ -118,16 +118,16 @@ public:
 
         Undo = new QPushButton(GameAi);
         Undo->setObjectName("Undo");
-        Undo->setGeometry(QRect(720, 490, 93, 29));
+        Undo->setGeometry(QRect(570, 420, 93, 29));
         Reset = new QPushButton(GameAi);
         Reset->setObjectName("Reset");
-        Reset->setGeometry(QRect(570, 490, 93, 29));
+        Reset->setGeometry(QRect(420, 420, 93, 29));
         New_Game = new QPushButton(GameAi);
         New_Game->setObjectName("New_Game");
-        New_Game->setGeometry(QRect(420, 490, 93, 29));
+        New_Game->setGeometry(QRect(270, 420, 93, 29));
         pushButton_10 = new QPushButton(GameAi);
         pushButton_10->setObjectName("pushButton_10");
-        pushButton_10->setGeometry(QRect(560, 580, 91, 61));
+        pushButton_10->setGeometry(QRect(410, 510, 91, 61));
 
         retranslateUi(GameAi);
         QObject::connect(pushButton_10, &QPushButton::clicked, GameAi, qOverload<>(&QDialog::close));

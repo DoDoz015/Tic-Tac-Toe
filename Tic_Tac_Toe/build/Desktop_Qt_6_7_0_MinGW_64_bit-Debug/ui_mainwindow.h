@@ -39,6 +39,7 @@ public:
     QLineEdit *lineEdit_password_2;
     QPushButton *Save;
     QPushButton *pushButton;
+    QPushButton *Game_History;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -64,6 +65,7 @@ public:
         lineEdit_password = new QLineEdit(groupBox);
         lineEdit_password->setObjectName("lineEdit_password");
         lineEdit_password->setGeometry(QRect(100, 90, 113, 26));
+        lineEdit_password->setEchoMode(QLineEdit::Password);
         Login = new QPushButton(groupBox);
         Login->setObjectName("Login");
         Login->setGeometry(QRect(100, 140, 93, 29));
@@ -82,16 +84,20 @@ public:
         lineEdit_password_2 = new QLineEdit(groupBox_2);
         lineEdit_password_2->setObjectName("lineEdit_password_2");
         lineEdit_password_2->setGeometry(QRect(80, 90, 113, 26));
+        lineEdit_password_2->setEchoMode(QLineEdit::Password);
         Save = new QPushButton(groupBox_2);
         Save->setObjectName("Save");
         Save->setGeometry(QRect(60, 130, 93, 29));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(350, 410, 93, 29));
+        pushButton->setGeometry(QRect(350, 480, 93, 29));
+        Game_History = new QPushButton(centralwidget);
+        Game_History->setObjectName("Game_History");
+        Game_History->setGeometry(QRect(620, 10, 121, 51));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -115,6 +121,7 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "password", nullptr));
         Save->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+        Game_History->setText(QCoreApplication::translate("MainWindow", "Game History", nullptr));
     } // retranslateUi
 
 };

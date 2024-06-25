@@ -140,8 +140,9 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug/qrc_Resource.cpp
 debug/qrc_Resource.cpp: ../../Resource.qrc \
 		C:/Qt/6.7.0/mingw_64/bin/rcc.exe \
-		C:/Users/user/Downloads/next\ icon.png \
-		C:/Users/user/Downloads/Back\ icon.png
+		../../tictactoe.db \
+		../../images/next_icon.png \
+		../../images/back_icon.png
 	'C:\Qt\6.7.0\mingw_64\bin\rcc.exe' -name Resource --no-zstd ../../Resource.qrc -o debug/qrc_Resource.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -354,6 +355,7 @@ debug/moc_gameai.cpp: ../../gameai.h \
 	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include 'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -I'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe' -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../gameai.h -o debug/moc_gameai.cpp
 
 debug/moc_gamehistory.cpp: ../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -541,6 +543,26 @@ debug/moc_gamehistory.cpp: ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -667,23 +689,16 @@ debug/moc_gamehistory.cpp: ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -697,7 +712,6 @@ debug/moc_gamehistory.cpp: ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -706,19 +720,22 @@ debug/moc_gamehistory.cpp: ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
 	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include 'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -I'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe' -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../gamehistory.h -o debug/moc_gamehistory.cpp
 
 debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -906,6 +923,26 @@ debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -1032,23 +1069,16 @@ debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -1062,7 +1092,6 @@ debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -1071,13 +1100,15 @@ debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
@@ -1085,6 +1116,7 @@ debug/moc_gamehistorylogin.cpp: ../../gamehistorylogin.h \
 
 debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1272,6 +1304,26 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -1398,23 +1450,16 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -1428,7 +1473,6 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -1437,21 +1481,19 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../thegame.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QGuiApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QScreen \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QStack \
@@ -1650,6 +1692,26 @@ debug/moc_replaygamewindow.cpp: ../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
 	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include 'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -I'A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe' -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../replaygamewindow.h -o debug/moc_replaygamewindow.cpp
@@ -2310,6 +2372,23 @@ debug/gameai.o: ../../gameai.cpp ../../gameai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
 		../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -2434,23 +2513,16 @@ debug/gameai.o: ../../gameai.cpp ../../gameai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -2464,7 +2536,6 @@ debug/gameai.o: ../../gameai.cpp ../../gameai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -2473,22 +2544,22 @@ debug/gameai.o: ../../gameai.cpp ../../gameai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../thegame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QMetaType
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/gameai.o ../../gameai.cpp
 
 debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2676,6 +2747,26 @@ debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -2802,23 +2893,16 @@ debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -2832,7 +2916,6 @@ debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -2841,32 +2924,23 @@ debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		ui_gamehistory.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtextedit.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
 		../../mainwindow.h \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../thegame.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QGuiApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QScreen \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QStack \
@@ -2877,6 +2951,7 @@ debug/gamehistory.o: ../../gamehistory.cpp ../../gamehistory.h \
 
 debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3064,6 +3139,26 @@ debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -3190,23 +3285,16 @@ debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -3220,7 +3308,6 @@ debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -3229,37 +3316,26 @@ debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		ui_gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
 		../../mainwindow.h \
 		../../startgame.h \
 		../../thegame.h \
@@ -3273,6 +3349,7 @@ debug/gamehistorylogin.o: ../../gamehistorylogin.cpp ../../gamehistorylogin.h \
 
 debug/main.o: ../../main.cpp ../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3460,6 +3537,26 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -3586,23 +3683,16 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -3616,7 +3706,6 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -3625,21 +3714,19 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../thegame.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QGuiApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QScreen \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QStack \
@@ -3652,6 +3739,7 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 
 debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3839,6 +3927,26 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -3965,23 +4073,16 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -3995,7 +4096,6 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -4004,21 +4104,19 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../thegame.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QGuiApplication \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QScreen \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QStack \
@@ -4030,10 +4128,6 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGroupBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgroupbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
@@ -4235,7 +4329,210 @@ debug/replaygamewindow.o: ../../replaygamewindow.cpp ../../replaygamewindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_replaygamewindow.h
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
+		ui_replaygamewindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QIcon \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../mainwindow.h \
+		../../gamehistory.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCoreDepends \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q20algorithm.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q20chrono.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q20iterator.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q20map.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q20vector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/q23functional.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qabstractanimation.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qabstractnativeeventfilter.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qabstractproxymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qanimationgroup.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qapplicationstatic.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QMutex \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qassociativeiterable.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qatomicscopedvaluerollback.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qbasictimer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qbitarray.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qbuffer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearraymatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcache.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborarray.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcbormap.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborstream.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborstreamreader.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcborstreamwriter.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcollator.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcommandlineoption.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcommandlineparser.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qcryptographichash.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtimezone.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qdiriterator.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qeasingcurve.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfactoryinterface.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfileselector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfilesystemwatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfuturesynchronizer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qfuturewatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qidentityproxymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qjsonarray.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qjsondocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qlatin1stringmatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qlibrary.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qlibraryinfo.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qversionnumber.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtyperevision.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qlockfile.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qloggingcategory.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmessageauthenticationcode.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmetaobject.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmimedata.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmimedatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmimetype.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qobjectcleanuphandler.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qoperatingsystemversion.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qparallelanimationgroup.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpauseanimation.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpermissions.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qplugin.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpointer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpluginloader.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qprocess.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qproperty.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpropertyprivate.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qpropertyanimation.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantanimation.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qqueue.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qrandom.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qreadwritelock.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qresource.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsavefile.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qscopedvaluerollback.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsemaphore.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsequentialanimationgroup.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsequentialiterable.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsettings.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsharedmemory.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtipccommon.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsignalmapper.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsimd.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsocketnotifier.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsortfilterproxymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qspan.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qstack.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qstandardpaths.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qstaticlatin1stringmatcher.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qstorageinfo.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringlistmodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qsystemsemaphore.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtcoreversion.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtemporarydir.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtemporaryfile.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtextboundaryfinder.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qthreadstorage.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtimeline.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtimer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtranslator.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtransposeproxymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qtsymbolmacros.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qurlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvarianthash.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QHash \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QString \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qcombobox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaltablemodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../../gamehistorylogin.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
+		../../startgame.h \
+		../../thegame.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QGuiApplication \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QScreen \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QStack \
+		../../gameai.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/replaygamewindow.o ../../replaygamewindow.cpp
 
 debug/startgame.o: ../../startgame.cpp ../../startgame.h \
@@ -4447,6 +4744,23 @@ debug/startgame.o: ../../startgame.cpp ../../startgame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -4571,23 +4885,16 @@ debug/startgame.o: ../../startgame.cpp ../../startgame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -4601,7 +4908,6 @@ debug/startgame.o: ../../startgame.cpp ../../startgame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -4610,13 +4916,11 @@ debug/startgame.o: ../../startgame.cpp ../../startgame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqltablemodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -4834,6 +5138,22 @@ debug/thegame.o: ../../thegame.cpp ../../thegame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
 		../../mainwindow.h \
 		../../gamehistory.h \
+		../../replaygamewindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSql \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/QtSqlDepends \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QtCore \
@@ -4958,23 +5278,16 @@ debug/thegame.o: ../../thegame.cpp ../../thegame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantlist.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariantmap.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwaitcondition.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qwineventnotifier.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxmlstream.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsql-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldatabase.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriver.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqldriverplugin.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlerror.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlfield.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlindex.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrecord.h \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquery.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlrelationaldelegate.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
@@ -4988,7 +5301,6 @@ debug/thegame.o: ../../thegame.cpp ../../thegame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -4998,14 +5310,14 @@ debug/thegame.o: ../../thegame.cpp ../../thegame.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qsqlresult.h \
 		C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlQuery \
-		C:/Qt/6.7.0/mingw_64/include/QtSql/QSqlError \
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../gamehistorylogin.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash \
 		../../startgame.h \
 		../../gameai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/QMetaType
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/thegame.o ../../thegame.cpp
 
 debug/qrc_Resource.o: debug/qrc_Resource.cpp 

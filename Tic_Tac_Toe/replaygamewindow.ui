@@ -264,13 +264,13 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton_10">
+     <widget class="QPushButton" name="PreviousStep">
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="Resource.qrc">
-        <normaloff>:/new/prefix1/C:/Users/user/Downloads/Back icon.png</normaloff>:/new/prefix1/C:/Users/user/Downloads/Back icon.png</iconset>
+        <normaloff>:/new/prefix1/images/back_icon.png</normaloff>:/new/prefix1/images/back_icon.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -284,13 +284,13 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="NextStep">
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="Resource.qrc">
-        <normaloff>:/new/prefix1/C:/Users/user/Downloads/next icon.png</normaloff>:/new/prefix1/C:/Users/user/Downloads/next icon.png</iconset>
+        <normaloff>:/new/prefix1/images/next_icon.png</normaloff>:/new/prefix1/images/next_icon.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -303,6 +303,32 @@
       </property>
       <property name="flat">
        <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>416</y>
+     <width>101</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="Back">
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Home">
+      <property name="text">
+       <string>Home</string>
       </property>
      </widget>
     </item>

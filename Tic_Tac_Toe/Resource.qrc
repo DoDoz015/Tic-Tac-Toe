@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>C:/Users/user/Downloads/next icon.png</file>
-        <file>C:/Users/user/Downloads/Back icon.png</file>
+        <file>images/next_icon.png</file>
+        <file>images/back_icon.png</file>
+        <file>tictactoe.db</file>
     </qresource>
 </RCC>

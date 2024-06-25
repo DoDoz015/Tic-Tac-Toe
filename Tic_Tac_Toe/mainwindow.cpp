@@ -12,14 +12,16 @@ QString loggedInUser1 ;
 QString loggedInUser2 ;
 QString loggedInUser;  // Username of the logged-in user
 int userId;
+int gameId;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-     MyDB = QSqlDatabase::addDatabase("QSQLITE");
-    MyDB.setDatabaseName("A:/Project NAASR/sqlite/tictactoe.db");
-     MyDB.open();
+    MyDB = QSqlDatabase::addDatabase("QSQLITE");
+    // replace with database path from your PC
+    MyDB.setDatabaseName("A:/Project NAASR/DoDz/tic-tac-toe/Tic_Tac_Toe/tictactoe.db");
+    MyDB.open();
 
 }
 
@@ -77,12 +79,11 @@ void MainWindow::on_Login_clicked()
 
             loggedInUser1ID = query.value(0).toInt();
                 loggedInUser1 = username;
-            qDebug() << loggedInUser1ID ;
+
             } else{
 
                 loggedInUser2ID = query.value(0).toInt();
                 loggedInUser2 = username;
-                qDebug() << loggedInUser2ID ;
 
             }
 

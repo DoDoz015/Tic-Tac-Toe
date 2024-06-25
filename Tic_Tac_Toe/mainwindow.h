@@ -12,6 +12,7 @@
 #include <QMainWindow>
 #include <QtSql>
 #include <QDebug>
+#include <QDialog>
 #include <QFileInfo>
 extern QString loggedInUser ;
 extern int gameId;

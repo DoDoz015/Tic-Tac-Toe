@@ -2,6 +2,7 @@
 #define GAMEHISTORYLOGIN_H
 #include"gamehistory.h"
 #include <QDialog>
+#include <QWidget>
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>

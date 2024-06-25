@@ -1,7 +1,9 @@
 #ifndef GAMEHISTORY_H
 #define GAMEHISTORY_H
+#include "replaygamewindow.h"
 
 #include <QDialog>
+#include <QWidget>
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
@@ -9,10 +11,8 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVBoxLayout>
-#include "replaygamewindow.h"
-
-
-
+#include <QMap>
+#include <QPushButton>
 namespace Ui {
 class GameHistory;
 }
@@ -22,21 +22,19 @@ class GameHistory : public QDialog
     Q_OBJECT
 
 public:
-    explicit GameHistory(QWidget *parent = nullptr );
+    explicit GameHistory(QWidget *parent = nullptr);
     ~GameHistory();
 
-private slots:
-    void onGameButtonClicked();
-
 private:
-    void fetchAndDisplayGameHistory(int userId);
     Ui::GameHistory *ui;
     QVBoxLayout *layout;
-    QVector<int> gameIds; // Store game IDs to know which game to replay
+    QMap<QPushButton*, int> buttonToGameIdMap; // Map to store buttons and their game IDs
+    void fetchAndDisplayGameHistory(int userId);
     ReplayGameWindow * replaygamewindow;
 
 
-
+private slots:
+    void onGameButtonClicked();
 };
 
 #endif // GAMEHISTORY_H

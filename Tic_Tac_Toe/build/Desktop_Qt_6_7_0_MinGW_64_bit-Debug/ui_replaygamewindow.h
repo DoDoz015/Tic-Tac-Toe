@@ -16,6 +16,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,8 +37,12 @@ public:
     QPushButton *pushButton_2;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton;
+    QPushButton *PreviousStep;
+    QPushButton *NextStep;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *Back;
+    QPushButton *Home;
 
     void setupUi(QDialog *ReplayGameWindow)
     {
@@ -141,30 +146,46 @@ public:
         horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_10 = new QPushButton(layoutWidget1);
-        pushButton_10->setObjectName("pushButton_10");
+        PreviousStep = new QPushButton(layoutWidget1);
+        PreviousStep->setObjectName("PreviousStep");
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/new/prefix1/C:/Users/user/Downloads/Back icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon);
-        pushButton_10->setIconSize(QSize(100, 50));
-        pushButton_10->setFlat(true);
+        icon.addFile(QString::fromUtf8(":/new/prefix1/images/back_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        PreviousStep->setIcon(icon);
+        PreviousStep->setIconSize(QSize(100, 50));
+        PreviousStep->setFlat(true);
 
-        horizontalLayout->addWidget(pushButton_10);
+        horizontalLayout->addWidget(PreviousStep);
 
-        pushButton = new QPushButton(layoutWidget1);
-        pushButton->setObjectName("pushButton");
+        NextStep = new QPushButton(layoutWidget1);
+        NextStep->setObjectName("NextStep");
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/new/prefix1/C:/Users/user/Downloads/next icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
-        pushButton->setIconSize(QSize(100, 50));
-        pushButton->setFlat(true);
+        icon1.addFile(QString::fromUtf8(":/new/prefix1/images/next_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        NextStep->setIcon(icon1);
+        NextStep->setIconSize(QSize(100, 50));
+        NextStep->setFlat(true);
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(NextStep);
+
+        widget = new QWidget(ReplayGameWindow);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(30, 416, 101, 81));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        Back = new QPushButton(widget);
+        Back->setObjectName("Back");
+
+        verticalLayout->addWidget(Back);
+
+        Home = new QPushButton(widget);
+        Home->setObjectName("Home");
+
+        verticalLayout->addWidget(Home);
 
 
         retranslateUi(ReplayGameWindow);
 
-        pushButton->setDefault(false);
+        NextStep->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(ReplayGameWindow);
@@ -182,8 +203,10 @@ public:
         pushButton_9->setText(QString());
         pushButton_7->setText(QString());
         pushButton_2->setText(QString());
-        pushButton_10->setText(QString());
-        pushButton->setText(QString());
+        PreviousStep->setText(QString());
+        NextStep->setText(QString());
+        Back->setText(QCoreApplication::translate("ReplayGameWindow", "Back", nullptr));
+        Home->setText(QCoreApplication::translate("ReplayGameWindow", "Home", nullptr));
     } // retranslateUi
 
 };

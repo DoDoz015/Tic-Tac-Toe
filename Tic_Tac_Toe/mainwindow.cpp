@@ -13,6 +13,7 @@ QString loggedInUser2 ;
 QString loggedInUser;  // Username of the logged-in user
 int userId;
 int gameId;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

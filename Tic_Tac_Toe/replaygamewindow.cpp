@@ -27,7 +27,7 @@ ReplayGameWindow::~ReplayGameWindow()
 void ReplayGameWindow::loadGameDetails()
 {
     QSqlQuery query;
-    query.prepare("SELECT Player1_ID FROM Game WHERE Game_ID = :Game_ID");
+    query.prepare("SELECT Player1_ID, Player2_ID, Winner_ID FROM Game WHERE Game_ID = :Game_ID");
     query.bindValue(":Game_ID", gameId);
 
     if (!query.exec()) {
@@ -37,8 +37,20 @@ void ReplayGameWindow::loadGameDetails()
 
     if (query.next()) {
         player1Id = query.value(0).toInt();
+        player2Id = query.value(1).toInt();
+        winnerId = query.value(2).toInt();
         qDebug() << "Player 1 ID:" << player1Id;
-    }
+        qDebug() << "Player 2 ID:" << player2Id;
+        qDebug() << "Winner ID:" << winnerId;
+
+        if (winnerId == player1Id) {
+            ui->labelWinner->setText("Winner: Player 1 (X)");
+        } else if (winnerId == player2Id) {
+            ui->labelWinner->setText("Winner: Player 2 (O)");
+        } else {
+            ui->labelWinner->setText("Draw");
+     }
+   }
 }
 
 void ReplayGameWindow::loadGameSteps()

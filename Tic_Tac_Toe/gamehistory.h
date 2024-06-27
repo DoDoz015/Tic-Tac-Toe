@@ -3,7 +3,6 @@
 #include "replaygamewindow.h"
 
 #include <QDialog>
-#include <QWidget>
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
@@ -31,6 +30,7 @@ private:
     QMap<QPushButton*, int> buttonToGameIdMap; // Map to store buttons and their game IDs
     void fetchAndDisplayGameHistory(int userId);
     ReplayGameWindow * replaygamewindow;
+    QString getUsernameById(int userId);
 
 
 private slots:

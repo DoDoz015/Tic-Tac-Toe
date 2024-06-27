@@ -2,7 +2,6 @@
 #define REPLAYGAMEWINDOW_H
 
 #include <QDialog>
-#include <QWidget>
 #include <QVector>
 #include <QPushButton>
 #include <QLabel>
@@ -49,6 +48,9 @@ private:
     QVector<GameStep> gameSteps;
     int player1Id;
     int currentStepIndex;
+    int winnerId;
+    int player2Id;
+
 };
 
 #endif // REPLAYGAMEWINDOW_H

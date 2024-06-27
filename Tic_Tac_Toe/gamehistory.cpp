@@ -6,7 +6,6 @@
 #include <QSqlError>
 #include <QDebug>
 
-
 GameHistory::GameHistory(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::GameHistory)
@@ -38,15 +37,23 @@ void GameHistory::fetchAndDisplayGameHistory(int userId)
 
     int gameCount = 0;
     while (query.next()) {
-        gameId = query.value(0).toInt();
+         gameId = query.value(0).toInt();
         int player1Id = query.value(1).toInt();
         int player2Id = query.value(2).toInt();
         int winnerId = query.value(3).toInt();
 
-        qDebug() << "Game ID:" << gameId << ", Player 1 ID:" << player1Id << ", Player 2 ID:" << player2Id << ", Winner ID:" << winnerId;
+        QString player1Username = getUsernameById(player1Id);
+        QString player2Username = getUsernameById(player2Id);
+        QString winnerUsername = getUsernameById(winnerId);
+
+        qDebug() << "Game ID:" << gameId << ", Player 1 Username:" << player1Username << ", Player 2 Username:" << player2Username << ", Winner Username:" << winnerUsername;
 
         // Create a new button for each game
-        QPushButton *gameButton = new QPushButton(QString("Game %1").arg(++gameCount));
+        QPushButton *gameButton = new QPushButton(QString("Game %1: %2 vs %3, Winner: %4")
+                                                      .arg(++gameCount)
+                                                      .arg(player1Username)
+                                                      .arg(player2Username)
+                                                      .arg(winnerUsername));
         layout->addWidget(gameButton);
         buttonToGameIdMap[gameButton] = gameId;
 
@@ -59,6 +66,24 @@ void GameHistory::fetchAndDisplayGameHistory(int userId)
         QLabel *noGamesLabel = new QLabel("No games found.");
         layout->addWidget(noGamesLabel);
     }
+}
+
+QString GameHistory::getUsernameById(int Player_ID)
+{
+    QSqlQuery query;
+    query.prepare("SELECT username FROM Player WHERE Player_ID = :Player_ID");
+    query.bindValue(":Player_ID", Player_ID);
+
+    if (!query.exec()) {
+        qDebug() << "Error fetching username for user ID:" << Player_ID << " Error: " << query.lastError();
+        return "Unknown";
+    }
+
+    if (query.next()) {
+        return query.value(0).toString();
+    }
+
+    return "Unknown";
 }
 
 void GameHistory::onGameButtonClicked()

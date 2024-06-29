@@ -389,7 +389,7 @@ void GameAi::on_Undo_clicked() {
     if (!allEmpty) {
         if (!moveStackAI.isEmpty()) {
             if (allFull) {
-                // Pop and undo the last AI move
+                // Pop and undo the last move
                 if (!moveStackAI.isEmpty()) {
                     MoveAI lastMove = moveStackAI.pop();
                     grid[lastMove.row][lastMove.col]->setText("");

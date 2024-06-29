@@ -241,24 +241,24 @@ void TheGame::on_Reset_clicked() {
 void TheGame::on_New_Game_clicked() {
     loggedInUser = NULL;
     if(End_Game){
-    QSqlQuery query;
-    query.prepare("DELETE FROM GameSteps WHERE Game_ID = :Game_ID");
-    query.bindValue(":Game_ID", lastInsertedGameID);
+        QSqlQuery query;
+        query.prepare("DELETE FROM GameSteps WHERE Game_ID = :Game_ID");
+        query.bindValue(":Game_ID", lastInsertedGameID);
 
-    if (!query.exec()) {
-        qDebug() << "Failed to delete game steps:" << query.lastError();
-    } else {
-        qDebug() << "Deleted game steps for Game_ID:" << lastInsertedGameID;
-    }
-    QSqlQuery queryGame;
-    queryGame.prepare("DELETE FROM Game WHERE Game_ID = :Game_ID");
-    queryGame.bindValue(":Game_ID", lastInsertedGameID);
+        if (!query.exec()) {
+            qDebug() << "Failed to delete game steps:" << query.lastError();
+        } else {
+            qDebug() << "Deleted game steps for Game_ID:" << lastInsertedGameID;
+        }
+        QSqlQuery queryGame;
+        queryGame.prepare("DELETE FROM Game WHERE Game_ID = :Game_ID");
+        queryGame.bindValue(":Game_ID", lastInsertedGameID);
 
-    if (!queryGame.exec()) {
-        qDebug() << "Failed to delete game record:" << queryGame.lastError();
-    } else {
-        qDebug() << "Deleted game record for Game_ID:" << lastInsertedGameID;
-    }
+        if (!queryGame.exec()) {
+            qDebug() << "Failed to delete game record:" << queryGame.lastError();
+        } else {
+            qDebug() << "Deleted game record for Game_ID:" << lastInsertedGameID;
+        }
     }
     hide();
     MainWindow *mainWindow = new MainWindow();

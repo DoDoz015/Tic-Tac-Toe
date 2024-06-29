@@ -32,24 +32,13 @@ public:
     explicit TheGame(QWidget *parent = nullptr);
     ~TheGame();
 
-    QPushButton *grid[3][3];
-    Ui::TheGame *ui;
-    QString currentPlayer;
-    bool End_Game;
-    int stepNumber;  // Add this line to track the step number
-    void startNewGame() ;
-
-
-    void switchPlayer();
-    int lastInsertedGameID;
-    void checkForWin();
-
 
 
 private slots:
     //void handleCellClicked();
 
     void on_pushButton_clicked();
+    void checkForWin();
 
     void on_Reset_clicked();
 
@@ -63,10 +52,18 @@ private slots:
     void on_Undo_clicked();
 
 private:
+    QPushButton *grid[3][3];
+    Ui::TheGame *ui;
+    QString currentPlayer;
+    bool End_Game;
+    int stepNumber;  // Add this line to track the step number
+    void startNewGame() ;
 
+
+    void switchPlayer();
+    int lastInsertedGameID;
 
 
 };
 
 #endif // THEGAME_H
-

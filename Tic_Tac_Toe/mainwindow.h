@@ -2,7 +2,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#define AI_id 123456
+#define AI_id 1
 
 #include "gamehistory.h"
 #include "gamehistorylogin.h"

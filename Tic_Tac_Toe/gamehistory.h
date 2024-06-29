@@ -31,6 +31,11 @@ private:
     void fetchAndDisplayGameHistory(int userId);
     ReplayGameWindow * replaygamewindow;
     QString getUsernameById(int userId);
+    QString getGameGridById(int gameId);
+    int player2Id;
+    int player1Id;
+
+
 
 
 private slots:
